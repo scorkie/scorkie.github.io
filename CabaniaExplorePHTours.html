@@ -4,18 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore PH Tours</title>
+
+    <style>
+        .header-logo {
+            background-image: url('img/header_banner.png');
+            background-size: cover;
+            background-position: center; 
+            background-repeat: no-repeat; 
+            height: 50px;
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            padding: 15px 10px; 
+        }
+        .header-logo img {
+            height: 40px;
+            width: 40px; 
+            margin-right: 10px; 
+        }
+
+        .header-logo h1 {
+            font-size: 1.5rem; 
+            color: white; 
+            margin: 0; 
+            padding: 10px 0px; 
+        }
+
+        .banner {
+            background-image: url('img/bg-philippines.png');
+            background-size: cover;
+            background-position: center; 
+            background-repeat: no-repeat; 
+            height: 400px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+
 </head>
     <body>
         <header>
             <nav>
-                <div class="logo-container" style="background-image: url(img/header_banner.png);">
+                <div class="header-logo">
                     <img src="img/logo2.png" alt="Business Icon">
                     <h1>Explore PH</h1>
                 </div>
             </nav>
         </header>
 
-        <div class="banner" style="background-image: url(img/bg-philippines.png);">
+        <div class="banner">
             <h2>Welcome to Explore PH Tours!</h2>
             <p>Your Gateway to the Philippines!</p>
         </div>
