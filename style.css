@@ -145,7 +145,7 @@ body, html {
     transition: transform 0.3s ease;
 }
 
-#promos{
+#promos {
     height: 710px; 
     display: flex;
     flex-direction: column;
@@ -153,4 +153,27 @@ body, html {
     align-items: center;
     color: black;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+#about {
+    height: 710px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.cta h1 {
+    color: black; 
+    text-align: center;
+    font-size: 60px;
+}
+
+.cta p{
+    color: black; 
+    text-align: center;
+    font-size: 30px;
+    margin: 5px;
 }
