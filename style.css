@@ -78,3 +78,36 @@ body, html {
     color: white;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
+
+.banner h1{
+    color: white; 
+    text-align: center;
+    font-size: 60px;
+    margin: 0;
+}
+
+.banner h2{
+    color: white; 
+    text-align: center;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.services{
+    background-image: url(img/beach.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 710px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+.services h1 {
+    color: white; 
+    text-align: center;
+    font-size: 60px;
+}
