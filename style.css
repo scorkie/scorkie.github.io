@@ -333,3 +333,28 @@ body, html {
     font-size: 40px;
     margin: 5px;
 }
+
+.footer {
+    width: 100%; 
+    background-image: url('img/header_banner.png');
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.bottom p {
+    color: #84b2d2; 
+    text-align: center;
+    font-size: 40px;
+}
