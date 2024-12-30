@@ -272,6 +272,46 @@ body, html {
     opacity: 1;
 }
 
+#cta {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100px;
+}
+.cta h1 {
+    color: #84b2d2; 
+    text-align: center;
+    font-size: 60px;
+}
+
+.cta p{
+    color: #84b2d2; 
+    text-align: center;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.cta-button {
+    text-align: center;
+}
+
+.cta-button button {
+    border: none;
+    background-color: #84b2d2;
+    color: white; 
+    padding: 15px 32px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px; 
+    transition: background-color 0.3s ease; 
+}
+
+.cta-button button:hover {
+    background-color: #6a9bb9;
+}
+
 #about {
     height: 710px; 
     display: flex;
@@ -279,7 +319,6 @@ body, html {
     justify-content: space-between;
     align-items: center;
     color: black;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .about h1 {
@@ -288,15 +327,9 @@ body, html {
     font-size: 60px;
 }
 
-.cta h1 {
-    color: black; 
+.about p {
+    color: #84b2d2; 
     text-align: center;
-    font-size: 60px;
-}
-
-.cta p{
-    color: black; 
-    text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     margin: 5px;
 }
