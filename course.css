@@ -1,0 +1,25 @@
+h1 {
+    color: #60529f;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 5px;
+    color: #60529f;
+}
+thead {
+    background-color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #eddcf7;
+}
+tr:nth-child(odd) {
+    background-color: #fff;
+}
