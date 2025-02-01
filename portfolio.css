@@ -201,7 +201,7 @@ body::-webkit-scrollbar{
     font-size: 60px;
     white-space: nowrap;
     overflow: hidden;
-    animation: typing 2.5s steps(5) infinite;
+    animation: typing 2.5s steps(6) infinite;
 }
 
 @keyframes typing {
