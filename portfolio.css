@@ -7,6 +7,10 @@ body, html{
     background-color: rgb(12,12,12);
 }
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
 .header-top{
     position: fixed;
     top: 0;
