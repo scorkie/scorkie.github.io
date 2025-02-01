@@ -49,18 +49,18 @@ body, html{
     color: white; 
 }
 
-#aboutme{
-    height: 800px; 
+#aboutme {
+    min-height: 710px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    color: white; 
-    padding: 40px;
+    color: white;
+    padding: 2rem;
     overflow: hidden;
 }
 
-.aboutme h1{
+.aboutme h1 {
     text-align: center;
     font-size: 60px;
     width: 100%;
@@ -72,45 +72,59 @@ body, html{
 @keyframes typing {
     0% { width: 0 }
     50% { width: 100% }
-    100% { width: 0 } 
+    100% { width: 0 }
 }
 
 .aboutme-container {
-    width: 90%;
+    width: 100%;
+    max-width: 1200px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    gap: 4rem;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
 }
 
 .aboutme-container p {
-    font-size: 30px;
+    font-size: clamp(1rem, 2.5vw, 1.875rem);
     text-align: justify;
-    margin: 100px;
-    margin-top: 150px;
+    margin: 50;
+    flex: 1;
 }
 
 .aboutme-container img {
-    display: flex;
-    width: 70%;
-    height: 45%;
-    justify-content: center;
+    width: 100%;
+    max-width: 460px;
+    height: auto;
     border-radius: 10%;
-    box-shadow: 0 0 125px 20px #8e7cc3;
+    box-shadow: 0 0 80px 20px #8e7cc3;
+    object-fit: cover;
 }
 
+@media screen and (max-width: 768px) {
+    .aboutme-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
 
-#skills{
-    height: 710px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    color: white; 
+    .aboutme-container img {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .aboutme-container p {
+        text-align: left;
+    }
 }
 
-.skills h1{
-    text-align: center;
-    font-size: 60px;
+@media screen and (max-width: 480px) {
+    #aboutme {
+        padding: 1rem;
+    }
+    
+    .aboutme h1 {
+        margin-bottom: 1rem;
+    }
 }
 
 #projects{
@@ -125,6 +139,15 @@ body, html{
 .projects h1{
     text-align: center;
     font-size: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2.5s steps(8) infinite;
+}
+
+@keyframes typing {
+    0% { width: 0 }
+    50% { width: 100% }
+    100% { width: 0 }
 }
 
 #extra{
@@ -139,7 +162,17 @@ body, html{
 .extra h1{
     text-align: center;
     font-size: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2.5s steps(5) infinite;
 }
+
+@keyframes typing {
+    0% { width: 0 }
+    50% { width: 100% }
+    100% { width: 0 }
+}
+
 
 #contact{
     height: 710px; 
@@ -153,7 +186,17 @@ body, html{
 .contact h1{
     text-align: center;
     font-size: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 2.5s steps(10) infinite;
 }
+
+@keyframes typing {
+    0% { width: 0 }
+    50% { width: 100% }
+    100% { width: 0 }
+}
+
 
 
 .footer {
