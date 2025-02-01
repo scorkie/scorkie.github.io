@@ -49,7 +49,7 @@ body::-webkit-scrollbar{
 .header-top ul li a{
     text-decoration: none;
     color: black;
-    font-size: clamp(16px, 2.5vw, 30px);
+    font-size: clamp(20px, 2.5vw, 30px);
     transition: color 0.5s ease;
     white-space: nowrap;
 }
@@ -254,5 +254,28 @@ body::-webkit-scrollbar{
 .bottom p {
     color: white; 
     text-align: center;
-    font-size: 30px;
+    font-size: clamp(20px, 2.5vw, 30px);
+}
+
+@media screen and (max-width: 768px) {
+    .bottom {
+        padding: 0 10px;
+    }
+
+    .bottom p {
+        height: 45px;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .bottom {
+        padding: 0 10px;
+    }
+
+    .bottom p {
+        height: 45px;
+        padding: 8px;
+    }
+
 }
