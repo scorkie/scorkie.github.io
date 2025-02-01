@@ -45,76 +45,41 @@ body, html{
 .header-top ul li a{
     text-decoration: none;
     color: black;
-    font-size: 30px;
+    font-size: clamp(16px, 2.5vw, 30px);
     transition: color 0.5s ease;
-}
-
-.header-top ul li a:hover{
-    color: white; 
-}
-
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: black;
-    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
+    .header-top {
+        padding: 0 10px;
     }
 
-    .header-top ul {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #8e7cc3;
-        flex-direction: column;
-        padding: 0;
-        gap: 0;
-    }
-
-    .header-top ul.active {
-        display: flex;
-    }
-
-    .header-top ul li {
-        width: 100%;
-        text-align: center;
-        padding: 15px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .header-top ul li a {
-        display: block;
-        padding: 10px;
+    .logo img {
+        height: 45px;
+        padding: 8px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .logo img {
-        height: 45px;
-        padding: 5px;
-    }
-    
     .header-top {
         height: 60px;
-        padding: 0 15px;
+        padding: 0 5px;
     }
+    
+    .logo img {
+        height: 40px;
+        padding: 5px;
+    }
+
+    .header-top ul {
+        padding: 10px;
+        gap: clamp(5px, 1vw, 10px);
+    }
+}
+
+.header-top ul li a:hover{
+    color: white; 
 }
 
 #aboutme {
