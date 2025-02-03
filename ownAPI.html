@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yakuza API</title>
+    <title>Random Anime Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,11 +11,20 @@
             margin-top: 50px;
             background-color: #f4f4f9;
         }
-        h1, h2 {
+        #animeData {
+            margin-top: 20px;
+            font-size: 1.2em;
             color: #333;
         }
+        img {
+            border-radius: 10px;
+            margin-top: 10px;
+            width: 200px;
+            height: auto;
+        }
         button {
-            padding: 10px 20px;
+            margin-top: 20px;
+            padding: 10px 15px;
             font-size: 1em;
             background-color: #007bff;
             color: white;
@@ -26,49 +35,44 @@
         button:hover {
             background-color: #0056b3;
         }
-        div {
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
     </style>
 </head>
 <body>
-    <h1>Yakuza API Example</h1>
-    
-    <button onclick="fetchWeather()">Fetch Weather Data</button>
-    
-    <div>
-        <h2>Weather Details</h2>
-        <p><strong>City:</strong> <span id="weather_city">--</span></p>
-        <p><strong>Temperature:</strong> <span id="weather_temperature">--</span></p>
-        <p><strong>Condition:</strong> <span id="weather_condition">--</span></p>
-    </div>
+    <h1>RANDOM ANIME GENERATOR</h1>
+    <div id="animeData">Click the button to fetch a random anime!</div>
+    <button id="fetchAnimeBtn">Get Random Anime</button>
 
     <script>
-        // Replace with your WeatherAPI key
-        const apiKey = 'cbb0b276f1724b6fb1420151241811'; // Consider keeping API keys secure
-        const city = 'Davao'; // Change this to any city you want
+        const animeDataDiv = document.getElementById('animeData');
+        const fetchAnimeBtn = document.getElementById('fetchAnimeBtn');
 
-        function fetchWeather() {
-            const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+        async function fetchRandomAnime() {
+            animeDataDiv.innerHTML = 'Loading...';
 
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    document.getElementById("weather_city").textContent = data.location?.name || 'N/A';
-                    document.getElementById("weather_temperature").textContent = `${data.current?.temp_c}°C` || 'N/A';
-                    document.getElementById("weather_condition").textContent = data.current?.condition?.text || 'N/A';
-                })
-                .catch(error => {
-                    console.error('Error fetching weather data:', error);
-                    alert('Failed to load weather data. Please try again.');
-                });
+            try {
+                const response = await fetch('https://api.jikan.moe/v4/top/anime');
+                const data = await response.json();
+
+                if (data.data && data.data.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * data.data.length);
+                    const anime = data.data[randomIndex];
+
+                    animeDataDiv.innerHTML = `
+                        <p><strong>Title:</strong> ${anime.title}</p>
+                        <p><strong>Score:</strong> ${anime.score}</p>
+                        <p><strong>Episodes:</strong> ${anime.episodes}</p>
+                        <img src="${anime.images.jpg.image_url}" alt="Anime Image">
+                    `;
+                } else {
+                    animeDataDiv.innerHTML = '<p>No anime data found.</p>';
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                animeDataDiv.innerHTML = '<p style="color: red;">Failed to load anime data. Please try again.</p>';
+            }
         }
+
+        fetchAnimeBtn.addEventListener('click', fetchRandomAnime);
     </script>
 </body>
 </html>
