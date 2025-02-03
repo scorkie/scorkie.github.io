@@ -20,38 +20,60 @@
             border-radius: 50%;
             margin-top: 10px;
         }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <h1>Random User Data</h1>
     <div id="userData">Loading user data...</div>
+    <button id="newEmailBtn">Generate New User Data</button>
 
     <script>
         const userDataDiv = document.getElementById('userData');
+        const newEmailBtn = document.getElementById('newEmailBtn');
 
-        // Fetch data from a public API
-        fetch('https://randomuser.me/api/')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Extract user data from the response
-                const user = data.results[0];
+        function fetchUserData() {
+            userDataDiv.innerHTML = 'Loading user data...';
+            
+            fetch('https://randomuser.me/api/')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const user = data.results[0];
 
-                // Display user data on the page
-                userDataDiv.innerHTML = `
-                    <p><strong>Name:</strong> ${user.name.first} ${user.name.last}</p>
-                    <p><strong>Email:</strong> ${user.email}</p>
-                    <img src="${user.picture.medium}" alt="User Image">
-                `;
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                userDataDiv.innerHTML = '<p style="color: red;">Failed to load user data. Please try again.</p>';
-            });
+                    userDataDiv.innerHTML = `
+                        <p><strong>Name:</strong> ${user.name.first} ${user.name.last}</p>
+                        <p><strong>Email:</strong> <span id="userEmail">${user.email}</span></p>
+                        <p><strong>Location:</strong> ${user.location.city}, ${user.location.country}</p>
+                        <p><strong>Phone:</strong> ${user.phone}</p>
+                        <img src="${user.picture.medium}" alt="User Image">
+                    `;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    userDataDiv.innerHTML = '<p style="color: red;">Failed to load user data. Please try again.</p>';
+                });
+        }
+
+        fetchUserData();
+
+        newEmailBtn.addEventListener('click', fetchUserData);
     </script>
 </body>
 </html>
